@@ -1,0 +1,13 @@
+---
+ - name: create file
+   hosts: ansible_clients
+   remote_user: root
+   become: true
+   vars:
+           filename: mini4
+   tasks:
+           - name: creating file
+             file:
+                     path: "{{ filename }}"
+                     state: touch
+...

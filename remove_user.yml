@@ -1,0 +1,12 @@
+---
+ - name: remove user
+   hosts: ansible_clients
+   remote_user: root
+   become: true
+   vars:
+           username: hc1
+   tasks:
+           - name: remove user
+             user:
+                     name: "{{ username }}"
+                     state: absent

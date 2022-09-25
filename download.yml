@@ -1,0 +1,13 @@
+---
+ - name: download
+   hosts: ansible_clients
+   remote_user: root
+   become: true
+   vars_prompt:
+           - name: "link"
+             prompt: "Enter path of content from where to download "
+   tasks:
+           - name: downloading
+             command:
+                     cmd : wget {{ link }}
+ 

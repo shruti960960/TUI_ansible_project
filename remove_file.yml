@@ -1,0 +1,12 @@
+---
+ - name: remove file
+   hosts: ansible_clients
+   remote_user: root
+   become: true
+   vars:
+           filename: /root/mini3
+   tasks:
+           - name: removing file
+             file:
+                     path: "{{ filename }}"
+                     state: absent

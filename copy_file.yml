@@ -1,0 +1,14 @@
+---
+ - name: copy file
+   hosts: ansible_clients
+   remote_user: root
+   become: true
+   vars:
+           src: /etc/passwd
+           dest: /root/passwd2
+   tasks:
+           - name: copying file
+             copy:
+                     src: "{{ src }}"
+                     dest: "{{ dest }}"
+...

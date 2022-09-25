@@ -1,0 +1,13 @@
+---
+ - name: remove directory
+   hosts: ansible_clients
+   remote_user: root
+   become: true
+   vars:
+           dirname: /root/shreya1
+   tasks:
+           - name: removing directory
+             file:
+                     path: "{{ dirname }}"
+                     state: absent
+...

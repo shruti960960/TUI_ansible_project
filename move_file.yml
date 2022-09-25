@@ -1,0 +1,12 @@
+---
+ - name: move file
+   hosts: ansible_clients
+   remote_user: root
+   become: true
+   vars:
+           src: /root/passwd
+           dest: /tmp/shreya
+   tasks:
+           - name: moving file
+             command:
+                     cmd: mv {{ src }} {{ dest }}

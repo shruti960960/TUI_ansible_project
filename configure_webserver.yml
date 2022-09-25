@@ -1,0 +1,21 @@
+---
+- name: first playbook
+  hosts: ansible_clients
+  remote_user: root
+  become: true
+  vars_prompt:
+          - name: "src"
+            prompt: "Enter path of file want to deploy"
+  tasks:
+          - name: configure httpd
+            yum:
+                    name: httpd
+                    state: latest
+          - name: run httpd
+            service:
+                    name: httpd
+                    state: started
+          - name: create content
+            copy:
+                    src: "{{src}}"
+                    dest: /var/www/html/index.html
